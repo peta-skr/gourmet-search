@@ -1,47 +1,54 @@
-import SearchInput from "./page/searchInput/SearchInput";
-import SearchResult from "./page/searchResult/SearchResult";
-import ShopDetail from "./page/shopDetail/ShopDetail";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./page/Home";
+import SearchResult from "./page/SearchResult";
+import ShopDetail from "./page/ShopDetail";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import CssBaseline from "@mui/material/CssBaseline";
+import { useLocation } from "react-router-dom";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material/styles";
+import NotFound from "./page/NotFound";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [available, setAvailable] = useState(0);
+  const [data, setData] = useState([]); //取得したデータを入れる
+  const [available, setAvailable] = useState(0); //取得した店の件数を入れる
+  const [load, setLoad] = useState(true); //ロード中かどうか
+  const location = useLocation();
+
+  let theme = createTheme();
+  theme = responsiveFontSizes(theme);
 
   return (
-    <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <SearchInput
-              data={data}
-              setData={setData}
-              setAvailable={setAvailable}
-            />
-          }
-        />
-        {/* <Route path="/result">
+    <>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <Routes location={location} key={location.key}>
+          <Route path="/" element={<Home />} />
           <Route
-            path=":pageId"
+            path="/result"
             element={
               <SearchResult
                 data={data}
                 setData={setData}
                 available={available}
+                setAvailable={setAvailable}
+                load={load}
+                setLoad={setLoad}
               />
             }
           />
-        </Route> */}
-        <Route
-          path="/result"
-          element={
-            <SearchResult data={data} setData={setData} available={available} />
-          }
-        />
-        <Route path="/detail" element={<ShopDetail data={data} />} />
-      </Routes>
-    </div>
+          <Route path="/detail" element={<ShopDetail data={data} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ThemeProvider>
+    </>
   );
 }
 
