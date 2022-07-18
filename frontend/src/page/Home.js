@@ -68,7 +68,6 @@ const Home = () => {
             <Grid
               item
               xs={12}
-              spacing={2}
               sx={{
                 display: "flex",
                 marginX: { xs: 3, md: 0 },

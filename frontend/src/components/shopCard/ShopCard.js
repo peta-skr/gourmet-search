@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
-import { Link as RouteLink } from "react-router-dom";
 
 const ShopCard = ({ item }) => {
   return (
@@ -33,11 +32,9 @@ const ShopCard = ({ item }) => {
       <Box>
         <Grid container spacing={{ xs: 0, md: 1 }}>
           <Grid item xs={12}>
-            <RouteLink to={"/detail?shopId=" + item.id} id="shop-name">
-              <Link>
-                <Typography variant="h5">{item.name}</Typography>
-              </Link>
-            </RouteLink>
+            <Link href={"/detail?shopId=" + item.id} id="shop-name">
+              <Typography variant="h5">{item.name}</Typography>
+            </Link>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="subtitle1" gutterBottom>
