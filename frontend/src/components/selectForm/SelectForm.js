@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 
-const SelectForm = ({ range, handleChange, search }) => {
+const SelectForm = ({ range, handleChange, search, genre }) => {
   return (
     <>
       <FormControl required fullWidth size="small">
