@@ -16,15 +16,23 @@ const SelectForm = ({ range, handleChange, search }) => {
           label="distance"
           value={range}
           onChange={handleChange}
+          className="select"
         >
-          <MenuItem value={1}>300m</MenuItem>
+          <MenuItem id="def" value={1}>
+            300m
+          </MenuItem>
           <MenuItem value={2}>500m</MenuItem>
           <MenuItem value={3}>1000m</MenuItem>
           <MenuItem value={4}>2000m</MenuItem>
           <MenuItem value={5}>3000m</MenuItem>
         </Select>
       </FormControl>
-      <Button variant="contained" type="submit" onClick={(e) => search(e)}>
+      <Button
+        className="search"
+        variant="contained"
+        type="submit"
+        onClick={(e) => search(e)}
+      >
         Search
       </Button>
     </>

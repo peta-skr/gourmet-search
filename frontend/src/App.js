@@ -22,12 +22,22 @@ function App() {
   const [load, setLoad] = useState(true); //ロード中かどうか
   const location = useLocation();
 
-  let theme = createTheme();
+  let theme = createTheme({
+    palette: {
+      primary: {
+        light: "#ffbb93",
+        main: "#ff8a65",
+        dark: "#c75b39",
+        contrastText: "#fff",
+      },
+    },
+  });
   theme = responsiveFontSizes(theme);
 
   return (
     <>
       <CssBaseline />
+
       <ThemeProvider theme={theme}>
         <Routes location={location} key={location.key}>
           <Route path="/" element={<Home />} />

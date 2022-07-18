@@ -11,6 +11,7 @@ const Pagenate = ({ pageAmount }) => {
 
   return (
     <Pagination
+      id="pagenation"
       count={pageAmount}
       page={Number(searchParams.get("page"))}
       color="primary"
