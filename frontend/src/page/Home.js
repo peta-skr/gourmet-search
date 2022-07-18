@@ -17,7 +17,7 @@ const Home = () => {
   const [range, setRange] = useState(""); //範囲
   const [open, setOpen] = useState(false); //アラートを表示するかどうか
 
-  //経度と緯度を取得する
+  //経度と緯度ジャンルを取得する
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (success) => {
