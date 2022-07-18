@@ -33,7 +33,7 @@ const ShopCard = ({ item }) => {
       <Box>
         <Grid container spacing={{ xs: 0, md: 1 }}>
           <Grid item xs={12}>
-            <RouteLink to={"/detail?shopId=" + item.id}>
+            <RouteLink to={"/detail?shopId=" + item.id} id="shop-name">
               <Link>
                 <Typography variant="h5">{item.name}</Typography>
               </Link>

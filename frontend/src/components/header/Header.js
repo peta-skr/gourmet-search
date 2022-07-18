@@ -18,6 +18,7 @@ const Header = ({ displayBack }) => {
           {/* 戻るボタンを表示するかどうか（表示するのは詳細ページだけ） */}
           {displayBack && (
             <IconButton
+              id="back"
               size="large"
               edge="start"
               color="inherit"
@@ -29,7 +30,7 @@ const Header = ({ displayBack }) => {
             </IconButton>
           )}
           {/* ホームページに戻る。 */}
-          <Button color="inherit" onClick={() => navigate("/")}>
+          <Button id="home" color="inherit" onClick={() => navigate("/")}>
             Home
           </Button>
         </Toolbar>
