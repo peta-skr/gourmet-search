@@ -76,7 +76,7 @@ const ShopDetail = React.memo(() => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <Container maxW="800px">
+        <Container maxw="800px">
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant="h4">{shop.name}</Typography>

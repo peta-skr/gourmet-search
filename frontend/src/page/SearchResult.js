@@ -35,7 +35,6 @@ const SearchResult = ({
         page: searchParams.get("page"), //パラメーターを取得
       },
     });
-    console.log(searchParams.get("page"));
     setData(result.data.results.shop);
     setAvailable(result.data.results.results_available);
     setLoad(false);
@@ -96,7 +95,7 @@ const SearchResult = ({
         >
           <Typography variant="h5">{available}件見つかりました</Typography>
           {data.map((item) => (
-            <ShopCard item={item} />
+            <ShopCard key={item.id} item={item} />
           ))}
           <Pagenate pageAmount={pageAmount} />
         </Box>
